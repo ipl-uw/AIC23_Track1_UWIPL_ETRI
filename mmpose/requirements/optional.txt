@@ -1,0 +1,6 @@
+onnx
+onnxruntime
+pyrender
+requests
+smplx>=0.1.28
+trimesh
