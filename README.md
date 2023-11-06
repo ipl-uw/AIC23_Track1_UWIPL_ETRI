@@ -65,7 +65,7 @@ bash scripts/1_train_detector.sh
 ```
 mkdir deep-person-reid/reid-data
 ```
-Download our [sampled dataset](https://drive.google.com/file/d/1M1I35sjOPaTWYFO4WgydqNZ9896cqQn9/view) and unzip it under [deep-person-reid/reid-data](deep-person-reid/reid-data).
+Download our [sampled dataset](https://drive.google.com/file/d/1D6qdDSz3MwH8-odNnaGIMBWkPk4w46Ng/view?usp=drive_link) and unzip it under [deep-person-reid/reid-data](deep-person-reid/reid-data).
 
 \* Note that the file name DukeMTMC is just for training convenience, the DukeMTMC dataset is not used in our training process.
 
