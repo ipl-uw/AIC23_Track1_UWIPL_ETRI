@@ -1,6 +1,16 @@
 # CVPRW2023: Enhancing Multi-Camera People Tracking with Anchor-Guided Clustering and Spatio-Temporal Consistency ID Re-Assignment
 
-This is the official repositroy for 7th NVIDIA AI City Challenge (2023) Track 1: Multi-Camera People Tracking. [[Arxiv]](https://arxiv.org/abs/2304.09471)
+This is the official repository for the 7th NVIDIA AI City Challenge (2023) Track 1: Multi-Camera People Tracking. [[Arxiv]](https://arxiv.org/abs/2304.09471)
+
+## Dataset Availability
+
+The official dataset can be downloaded from the AI City Challenge website (https://www.aicitychallenge.org/2023-data-and-evaluation/). You need to fill out the dataset request form to obtain the password to download them.
+
+Referring to the DATASET LICENSE AGREEMENT from the dataset author(s), we are not allowed to share the dataset. 
+```
+2.c. ... you may not copy, sell, rent, sublicense, transfer or distribute the DATASET, or share with others.  
+```
+
  
 ## Ranking 
 
@@ -10,11 +20,11 @@ This is the official repositroy for 7th NVIDIA AI City Challenge (2023) Track 1:
 
 <img src="figure.jpg" width="650" />
 
-## Enviroment Requirements
+## Environment Requirements
 
 The implementation of our work is built upon [BoT-SORT](https://github.com/NirAharon/BoT-SORT), [OpenMMLab](https://github.com/open-mmlab), and [torchreid](https://github.com/KaiyangZhou/deep-person-reid). We also adapt [Cal_PnP](https://github.com/zhengthomastang/Cal_PnP) for camera self-calibration.
 
-Four different enviroments are required for the reproduce process. Please install these three enviroments according to the following repos:
+Four different environments are required for the reproduction process. Please install these three environments according to the following repos:
 1. [Installation for mmyolo*](https://github.com/open-mmlab/mmyolo#%EF%B8%8F-installation-)
 2. [Installation for mmpose](https://mmpose.readthedocs.io/en/latest/installation.html)
 3. [Installation for torchreid*](https://github.com/KaiyangZhou/deep-person-reid#installation)
@@ -24,7 +34,7 @@ Four different enviroments are required for the reproduce process. Please instal
 
 ## Training 
 
-#### Train Synthetic Detector (skip for fast reproduce)
+#### Train Synthetic Detector (skip for fast reproduction)
 0. Prepare MTMC Dataset and annotations
 Download `AIC23_Track1_MTMC_Tracking.zip` from [AICity organizer](https://www.aicitychallenge.org/2023-data-and-evaluation/) and unzip under the root directory of this repo and run:
 ```
@@ -60,7 +70,7 @@ bash scripts/1_train_detector.sh
 
 \* Note that the configs we provided are the ones we used in our submission. They may not be optimized for your GPU, please adjust the batchsize accordingly.
 
-#### Train Synthetic ReID Model (skip for fast reproduce)
+#### Train Synthetic ReID Model (skip for fast reproduction)
 0. Prepare ReID Dataset
 ```
 mkdir deep-person-reid/reid-data
@@ -69,7 +79,7 @@ Download our [sampled dataset](https://drive.google.com/file/d/1D6qdDSz3MwH8-odN
 
 \* Note that the file name DukeMTMC is just for training convenience, the DukeMTMC dataset is not used in our training process.
 
-1. Train reid model on synthetic data
+1. Train Reid model on synthetic data
 ```
 bash 2_train_reid.sh
 ```
@@ -78,7 +88,7 @@ bash 2_train_reid.sh
 
 ## Inferencing
 
-#### Get Detection (skip for fast reproduce)
+#### Get Detection (skip for fast reproduction)
 0. To Fast Reproduce
 
 Directly use the txt files in the `data/test_det` folder and skip the following steps.
@@ -114,7 +124,7 @@ bash scripts/5_inference_emb.sh
 
 ### Run Tracking
 
-The root_path for the following command should set to the repo's loaction
+The root_path for the following command should be set to the repo's location
 
 1. Navigate to the BoT-SORT folder
 ```
@@ -127,7 +137,7 @@ conda activate botsort_env
 python tools/run_tracking.py <root_path>
 ```
 
-3. Generate foot keypoint (optional)
+3. Generate foot keypoint
 ```
 conda activate mmpose
 cd ../mmpose
